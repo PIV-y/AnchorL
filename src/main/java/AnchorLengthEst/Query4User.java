@@ -4,49 +4,87 @@ import java.util.Scanner;
 
 public class Query4User {
     public static double SetValReinFrsDiameterEst() {
-        Scanner console = new Scanner(System.in);
         System.out.println("Диаметр расчетной арматуры, см: ");
-        double ReinFrsDiameterEst = console.nextDouble();
+        double ReinFrsDiameterEst = 0;
+        while (ReinFrsDiameterEst == 0){
+            Scanner console = new Scanner(System.in);
+            if (console.hasNextDouble()){
+                ReinFrsDiameterEst = console.nextDouble();
+                if (ReinFrsDiameterEst == 0)
+                    System.out.println("Введите положительное цифровое значение");}
+            else
+                System.out.println("Введите положительное цифровое значение");
+        }
         System.out.println("d=" + ReinFrsDiameterEst + "см");
         return ReinFrsDiameterEst;
     }
-
     public static double SetValReinFrsDiameterFact() {
-        Scanner console = new Scanner(System.in);
         System.out.println("Диаметр фактически применяемой арматуры, см: ");
-        double ReinFrsDiameterFact = console.nextDouble();
+        double ReinFrsDiameterFact = 0;
+        while (ReinFrsDiameterFact == 0){
+            Scanner console = new Scanner(System.in);
+            if (console.hasNextDouble()){
+                ReinFrsDiameterFact = console.nextDouble();
+                if (ReinFrsDiameterFact == 0)
+                    System.out.println("Введите положительное цифровое значение");}
+            else
+                System.out.println("Введите положительное цифровое значение");
+        }
         System.out.println("d=" + ReinFrsDiameterFact + "см");
         return ReinFrsDiameterFact;
     }
     public static double SetValReinFrsClass(){
-        Scanner console = new Scanner(System.in);
         String dbTbl = "reinforcement";
         String IndxParameter = "A";
         String measure = "MPa (Rs)";
         String query2user = "Выбери пункт с классом арматуры:";
         DataBase.db_connect(dbTbl, IndxParameter, measure, query2user);
-        String IDfromUser = console.next();
-        return DataBase.db_fetch(dbTbl, IDfromUser);
+        int IDfromUser = 0;
+        while (IDfromUser < 1 || IDfromUser > 2){
+            Scanner console = new Scanner(System.in);
+            if (console.hasNextInt()){
+                IDfromUser = console.nextInt();
+                if (IDfromUser < 1 || IDfromUser > 2)
+                    System.out.println("Введите пункт из предоставленного списка");}
+            else
+                System.out.println("Введите пункт из предоставленного списка");
+        }
+        return DataBase.db_fetch(dbTbl, Integer.toString(IDfromUser));
     }
     public static double SetValConcreteClass(){
-        Scanner console = new Scanner(System.in);
         String dbTbl = "concrete";
         String IndxParameter = "B";
         String measure = "MPa (Rbond)";
         String query2user = "Выбери пункт с классом бетонна:";
         DataBase.db_connect(dbTbl, IndxParameter, measure, query2user);
-        String IDcncrtFromIser = console.next();
-        return DataBase.db_fetch(dbTbl, IDcncrtFromIser);
+        int IDcncrtFromIser = 0;
+        while (IDcncrtFromIser < 1 || IDcncrtFromIser > 6){
+            Scanner console = new Scanner(System.in);
+            if (console.hasNextInt()){
+                IDcncrtFromIser = console.nextInt();
+                if (IDcncrtFromIser < 1 || IDcncrtFromIser > 6)
+                    System.out.println("Введите пункт из предоставленного списка");}
+            else
+                System.out.println("Введите пункт из предоставленного списка");
+        }
+        return DataBase.db_fetch(dbTbl, Integer.toString(IDcncrtFromIser));
     }
-
     public static double SetValWorkTypeKf(){
-        Scanner console = new Scanner(System.in);
         String dbTbl = "kfworktype";
         String IndxParameter = "";
         String measure = "";
         String query2user = "Выберите пункт с типом работы арматуры в бетоне:";
         DataBase.db_connect(dbTbl, IndxParameter, measure, query2user);
-        String IDWorkTypeKfFromUser = console.next();
-        return DataBase.db_fetch(dbTbl, IDWorkTypeKfFromUser);
+        int IDWorkTypeKfFromUser = 0;
+        while (IDWorkTypeKfFromUser < 1 || IDWorkTypeKfFromUser > 3){
+            Scanner console = new Scanner(System.in);
+            if (console.hasNextInt()){
+                IDWorkTypeKfFromUser = console.nextInt();
+                if (IDWorkTypeKfFromUser < 1 || IDWorkTypeKfFromUser > 3)
+                    System.out.println("Введите пункт из предоставленного списка");}
+            else
+                System.out.println("Введите пункт из предоставленного списка");
+        }
+        return DataBase.db_fetch(dbTbl, Integer.toString(IDWorkTypeKfFromUser));
     }
 }

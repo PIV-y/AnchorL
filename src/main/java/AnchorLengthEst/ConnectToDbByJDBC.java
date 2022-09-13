@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DB_srvINFO {
+public class ConnectToDbByJDBC {
     //JDBC URL, username and password of MySQL server
     public static final String url = "jdbc:mysql://localhost:3306/bd-test";
     public static final String user = "root";
@@ -19,19 +19,19 @@ public class DB_srvINFO {
         return con;
     }
     public static void setCon (Connection con){
-        DB_srvINFO.con = con;
+        ConnectToDbByJDBC.con = con;
     }
     public static Statement getStmt () {
         return stmt;
     }
     public static void setStmt (Statement stmt){
-        DB_srvINFO.stmt = stmt;
+        ConnectToDbByJDBC.stmt = stmt;
     }
     public static ResultSet getRs () {
         return rs;
     }
     public static void setRs (ResultSet rs){
-        DB_srvINFO.rs = rs;
+        ConnectToDbByJDBC.rs = rs;
     }
 
 }

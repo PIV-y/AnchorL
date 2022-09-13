@@ -2,7 +2,7 @@ package AnchorLengthEst;
 
 import java.util.Scanner;
 
-public class Query4User {
+public class QestionsForUser {
     public static double SetValReinFrsDiameterEst() {
         System.out.println("Диаметр расчетной арматуры, см: ");
         double ReinFrsDiameterEst = 0;
@@ -49,7 +49,7 @@ public class Query4User {
             else
                 System.out.println("Введите пункт из предоставленного списка");
         }
-        return DataBase.db_fetch(dbTbl, Integer.toString(IDfromUser));
+        return DataBase.Read(dbTbl, Integer.toString(IDfromUser));
     }
     public static double SetValConcreteClass(){
         String dbTbl = "concrete";
@@ -67,7 +67,7 @@ public class Query4User {
             else
                 System.out.println("Введите пункт из предоставленного списка");
         }
-        return DataBase.db_fetch(dbTbl, Integer.toString(IDcncrtFromIser));
+        return DataBase.Read(dbTbl, Integer.toString(IDcncrtFromIser));
     }
     public static double SetValWorkTypeKf(){
         String dbTbl = "kfworktype";
@@ -85,6 +85,6 @@ public class Query4User {
             else
                 System.out.println("Введите пункт из предоставленного списка");
         }
-        return DataBase.db_fetch(dbTbl, Integer.toString(IDWorkTypeKfFromUser));
+        return DataBase.Read(dbTbl, Integer.toString(IDWorkTypeKfFromUser));
     }
 }

@@ -1,6 +1,6 @@
 package AnchorLengthEst;
 
-public class Data4Est {
+public class ParametersForEstimation {
     private double ReinFrsDiameterEst;
     private double ReinFrsDiameterFact;
     private double ReinFrsSectionAreaEst; //Расчетная площадь сечения арматуры
